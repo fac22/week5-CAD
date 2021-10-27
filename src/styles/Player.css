@@ -1,4 +1,7 @@
 .player {
   position: absolute;
-  border: red;
+  border: solid 1px red;
+  height: 50px;
+  top: 50vh;
+  left: 50vw;
 }
