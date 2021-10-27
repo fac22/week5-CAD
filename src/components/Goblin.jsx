@@ -6,7 +6,7 @@ function Goblin({ x, y }) {
   return (
     <img
       src={goblin}
-      style={{ top: y + 'vh', left: x + 'vh' }}
+      style={{ top: y + 'vh', left: x + 'vw' }}
       alt="The player avatar"
       className="player"
     />
