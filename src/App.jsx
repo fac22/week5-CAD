@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Table from './components/Table';
 import Movement from './components/Movement';
 import Timer from './components/Timer';
+import GameOver from './components/GameOver';
 
 function App() {
   const [stage, setStage] = useState('HomePage');
@@ -13,9 +14,14 @@ function App() {
       {stage === 'Game' && (
         <>
           <Movement collision={collision} setCollision={setCollision} />
-          <Timer collision={collision} />
+          <Timer
+            collision={collision}
+            setStage={setStage}
+            setCollision={setCollision}
+          />
         </>
       )}
+      {stage === 'GameOver' && <GameOver setStage={setStage} />}
     </div>
   );
 }
