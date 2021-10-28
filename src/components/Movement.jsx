@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React from 'react';
 import Goblin from './Goblin';
 import Blob from './Blob';
 
@@ -7,12 +7,12 @@ function randomNumber(min, max) {
 }
 
 function Movement() {
-  const [gy, setGy] = useState(4);
-  const [gx, setGx] = useState(4);
-  const [by, setBy] = useState(randomNumber(0, 88));
-  const [bx, setBx] = useState(randomNumber(50, 88));
-  const [height, setHeight] = useState(12);
-  const [width, setWidth] = useState(12);
+  const [gy, setGy] = React.useState(4);
+  const [gx, setGx] = React.useState(4);
+  const [by, setBy] = React.useState(randomNumber(0, 88));
+  const [bx, setBx] = React.useState(randomNumber(50, 88));
+  const [height, setHeight] = React.useState(12);
+  const [width, setWidth] = React.useState(12);
 
   function handleKeyDown(e) {
     if (e.keyCode === 40)
@@ -46,7 +46,7 @@ function Movement() {
       });
   }
 
-  useEffect(() => {
+  React.useEffect(() => {
     document.addEventListener('keydown', handleKeyDown);
   }, []);
 
@@ -67,11 +67,11 @@ function Movement() {
     setWidth((w) => (w < 50 ? w + 0.001 : w));
   }
 
-  useEffect(() => {
+  React.useEffect(() => {
     setInterval(blobSize, 1000);
   });
 
-  useEffect(() => {
+  React.useEffect(() => {
     setInterval(blobMovement, 10);
   }, []);
 
