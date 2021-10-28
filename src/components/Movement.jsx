@@ -60,7 +60,7 @@ function Movement({ collision, setCollision }) {
     window.addEventListener('keydown', handleKeyDown);
     console.log('start listen for keys');
 
-    return () => window.removeEventListener();
+    return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
   React.useEffect(() => {
