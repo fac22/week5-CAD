@@ -1,6 +1,7 @@
 import React from 'react';
 import Goblin from './Goblin';
 import Blob from './Blob';
+import Timer from './Timer';
 
 function randomNumber(min, max) {
   return Math.round(Math.random() * (max - min) + min);
@@ -60,6 +61,7 @@ function Movement() {
     const sign = moveSign[randomNumber(0, 1)];
     return axis(sign);
   }
+
 
   React.useEffect(() => {
     setInterval(blobMovement, 1);
