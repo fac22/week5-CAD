@@ -4,6 +4,8 @@ function Timer({ collision, setStage, setCollision }) {
   const [score, setScore] = React.useState(1000);
   const [timer, setTimer] = React.useState(null);
 
+  const points = React.useRef(0);
+
   React.useEffect(() => {
     setTimer(
       setInterval(() => {
@@ -17,6 +19,8 @@ function Timer({ collision, setStage, setCollision }) {
   React.useEffect(() => {
     if (score === 0 || collision) {
       setTimer(clearInterval(timer));
+      points.current = score;
+      localStorage.setItem(Date.now(), JSON.stringify(points.current));
       setStage('GameOver');
       setCollision(false);
     }
