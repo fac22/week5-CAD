@@ -15,35 +15,10 @@ function Movement() {
   const [width, setWidth] = React.useState(12);
 
   function handleKeyDown(e) {
-    if (e.keyCode === 40)
-      setGy((p) => {
-        if (p + 2 !== 90) {
-          return p + 2;
-        }
-        return p;
-      });
-
-    if (e.keyCode === 38)
-      setGy((p) => {
-        if (p - 2 !== -2) {
-          return p - 2;
-        }
-        return p;
-      });
-    if (e.keyCode === 37)
-      setGx((p) => {
-        if (p - 2 !== -2) {
-          return p - 2;
-        }
-        return p;
-      });
-    if (e.keyCode === 39)
-      setGx((p) => {
-        if (p + 2 !== 90) {
-          return p + 2;
-        }
-        return p;
-      });
+    if (e.keyCode === 38) setGy((y) => (y - 2 !== -2 ? y - 2 : y)); // up
+    if (e.keyCode === 40) setGy((y) => (y + 2 !== 90 ? y + 2 : y)); // down
+    if (e.keyCode === 37) setGx((x) => (x - 2 !== -2 ? x - 2 : x)); // left
+    if (e.keyCode === 39) setGx((x) => (x + 2 !== 90 ? x + 2 : x)); // right
   }
 
   React.useEffect(() => {
