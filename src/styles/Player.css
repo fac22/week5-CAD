@@ -3,10 +3,12 @@ html {
 
 .player {
   position: absolute;
-  height: 12vh;
-  width: 12vw;
+  height: 10vh;
+  width: 10vw;
 }
 
 .blob {
   position: absolute;
+  height: 20vh;
+  width: 20vw;
 }
