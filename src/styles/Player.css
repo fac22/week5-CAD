@@ -6,3 +6,7 @@ html {
   height: 12vh;
   width: 12vw;
 }
+
+.blob {
+  position: absolute;
+}
