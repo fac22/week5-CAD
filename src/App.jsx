@@ -3,6 +3,7 @@ import Table from './components/Table';
 import Movement from './components/Movement';
 import Timer from './components/Timer';
 import GameOver from './components/GameOver';
+import './styles/Styles.css';
 
 function App() {
   const [stage, setStage] = useState('HomePage');

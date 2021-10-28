@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Timer({ collision, setStage, setCollision, points }) {
-  const [score, setScore] = React.useState(1000);
+  const [score, setScore] = React.useState(999);
   const [timer, setTimer] = React.useState(null);
 
   React.useEffect(() => {
@@ -24,7 +24,13 @@ function Timer({ collision, setStage, setCollision, points }) {
     }
   }, [score, collision]);
 
-  return <div>{score}</div>;
+  return (
+    <div className="flex flex--center">
+      <div className="score">
+        <h1>{score.toString().padStart(3, '0')}</h1>
+      </div>
+    </div>
+  );
 }
 
 export default Timer;

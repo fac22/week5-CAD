@@ -6,18 +6,17 @@ function GameOver(prop) {
   const playAgain = () => setStage('Game');
 
   return (
-    <div>
-      <header>GoGoGoblin</header>
-      <main className="game-over">
-        <h1>GAME OVER</h1>
-        <p className="score">Your score is {points}</p>
-        <button onClick={updateStage} type="button">
-          Home Page
-        </button>
-        <button onClick={playAgain} type="button">
-          Play Again
-        </button>
-      </main>
+    <div className="flex flex--center flex--column">
+      <h1>GAME OVER</h1>
+      <p className="score">
+        <output>Your score is {points.toString().padStart(3, '0')}</output>
+      </p>
+      <button onClick={updateStage} type="button">
+        HOME
+      </button>
+      <button onClick={playAgain} type="button">
+        CONTINUE?
+      </button>
     </div>
   );
 }

@@ -8,10 +8,12 @@ function Table(prop) {
   console.log(scoresArr);
 
   return (
-    <div>
-      <header>GoGoGoblin</header>
-      <main className="table">
-        <h1>How to play</h1>
+    <div className="flex flex--center flex--column">
+      <header>
+        <h1>GoGoGoblin</h1>
+      </header>
+      <div className="box flex flex--center flex--column">
+        <h2>How to play</h2>
         <ul className="instructions">
           <li>
             <p>Use the arrow keys to move around the screen</p>
@@ -21,17 +23,20 @@ function Table(prop) {
           </li>
         </ul>
         <button onClick={updateStage} type="button">
-          Start
+          PLAY
         </button>
         <h2>Here are your previous scores!</h2>
-        <ol>
+        <ul>
           {scoresArr
             .sort((a, b) => b - a)
             .map((score, index) => (
-              <li key={index}>{score}</li>
+              <li key={index}>
+                {(index + 1).toString().padStart(2, '0')} -{' '}
+                {score.toString().padStart(3, '0')}
+              </li>
             ))}
-        </ol>
-      </main>
+        </ul>
+      </div>
     </div>
   );
 }

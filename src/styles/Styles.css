@@ -1,0 +1,74 @@
+@font-face {
+  font-family: 'pixel';
+  src: url('../assets/Ishmeria.woff') format('woff');
+  font-weight: medium;
+  font-style: medium;
+}
+body {
+  font-family: 'pixel';
+  background-image: url('../assets/bg.jpg');
+  color: rgb(51, 255, 0);
+  font-size: 2rem;
+}
+
+li,
+ul {
+  list-style: none;
+
+  margin-top: 1rem;
+  padding: 0;
+}
+
+h1 {
+  font-family: 'pixel';
+  font-size: 10vw;
+}
+
+h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.1rem;
+}
+
+.box {
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 65vw;
+  border-radius: 10px;
+  padding: 2vw;
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex--center {
+  align-items: center;
+}
+
+.flex--column {
+  flex-direction: column;
+}
+
+button {
+  width: 80%;
+  height: 5rem;
+  background-color: rgb(51, 255, 0);
+  border: 0;
+  border-radius: 10px;
+  font-family: 'pixel';
+  font-size: 2rem;
+  margin-bottom: 3rem;
+}
+
+.score {
+  text-align: center;
+  width: 100%;
+}
+
+output {
+  display: block;
+  font-family: 'pixel';
+  font-size: 5rem;
+  color: rgb(255, 81, 0);
+  margin-bottom: 5rem;
+}
