@@ -9,8 +9,8 @@ function randomNumber(min, max) {
 function Movement() {
   const [gy, setGy] = React.useState(4);
   const [gx, setGx] = React.useState(4);
-  const [by, setBy] = React.useState(randomNumber(0, 88));
-  const [bx, setBx] = React.useState(randomNumber(50, 88));
+  const [by, setBy] = React.useState(randomNumber(0, 80));
+  const [bx, setBx] = React.useState(randomNumber(50, 80));
   const [collision, setCollision] = React.useState(false);
 
   React.useEffect(() => {
