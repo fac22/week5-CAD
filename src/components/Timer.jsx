@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Timer({ collision, id }) {
+function Timer({ collision }) {
   const [score, setScore] = React.useState(1000);
   const [timer, setTimer] = React.useState(null);
 
