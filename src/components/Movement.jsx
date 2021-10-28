@@ -35,10 +35,11 @@ function Movement({ collision, setCollision }) {
   }, [gy, gx, by, bx]);
 
   function handleKeyDown(e) {
+    console.log('key press');
     if (e.keyCode === 38) setGy((y) => (y - 2 !== -2 ? y - 2 : y)); // up
     if (e.keyCode === 40) setGy((y) => (y + 2 !== 92 ? y + 2 : y)); // down
     if (e.keyCode === 37) setGx((x) => (x - 2 !== -2 ? x - 2 : x)); // left
-    if (e.keyCode === 39) setGx((x) => (x + 2 !== 92 ? x + 2 : x)); // left
+    if (e.keyCode === 39) setGx((x) => (x + 2 !== 92 ? x + 2 : x)); // right
   }
 
   const blobAxes = [setBy, setBx];
