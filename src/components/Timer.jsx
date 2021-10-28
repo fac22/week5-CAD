@@ -1,31 +1,26 @@
-import { useEffect, useState, useRef } from 'react';
+import React from 'react';
 
-function Timer() {
-  const [score, setScore] = useState(1000);
+function Timer({ collision }) {
+  const [score, setScore] = React.useState(1000);
+  const [timer, setTimer] = React.useState(null);
 
-  const goblinHome = useRef(false);
-
-  useEffect(() => {
-    if (!goblinHome.current) {
-      const timer = setInterval(() => {
+  React.useEffect(() => {
+    setTimer(
+      setInterval(() => {
         setScore((oldScore) => oldScore - 1);
-      }, 100);
+      }, 100)
+    );
 
-      return () => clearInterval(timer);
-    }
+    return () => setTimer(clearInterval(timer));
   }, []);
 
-  const changeGoblinHome = () => {
-    console.log(goblinHome.current);
-    goblinHome.current = true;
-    console.log(goblinHome.current);
-  };
+  React.useEffect(() => {
+    if (score === 0 || collision) {
+      setTimer(clearInterval(timer));
+    }
+  }, [score, collision]);
 
-  return (
-    <div>
-      {score} - <button onClick={changeGoblinHome}>CLICK</button>
-    </div>
-  );
+  return <div>{score}</div>;
 }
 
 export default Timer;
