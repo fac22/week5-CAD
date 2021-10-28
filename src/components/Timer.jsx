@@ -6,7 +6,7 @@ function Timer() {
   const goblinHome = useRef(false);
 
   useEffect(() => {
-    if (goblinHome.current) {
+    if (!goblinHome.current) {
       const timer = setInterval(() => {
         setScore((oldScore) => oldScore - 1);
       }, 100);
