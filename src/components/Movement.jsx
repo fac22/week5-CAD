@@ -11,6 +11,15 @@ function Movement() {
   const [gx, setGx] = React.useState(4);
   const [by, setBy] = React.useState(randomNumber(0, 88));
   const [bx, setBx] = React.useState(randomNumber(50, 88));
+  const [collision, setCollision] = React.useState(false);
+
+  React.useEffect(() => {
+    if (gy === by && gx === bx) setCollision(true);
+  }, [gy, gx, by, bx]);
+
+  React.useEffect(() => {
+    if (collision) console.log('GAME!');
+  }, [collision]);
 
   function handleKeyDown(e) {
     if (e.keyCode === 38) setGy((y) => (y - 2 !== -2 ? y - 2 : y)); // up
