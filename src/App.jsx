@@ -13,7 +13,7 @@ function App() {
       {stage === 'Game' && (
         <>
           <Movement collision={collision} setCollision={setCollision} />
-          <Timer />
+          <Timer collision={collision} />
         </>
       )}
     </div>

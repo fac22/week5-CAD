@@ -1,8 +1,7 @@
 import React from 'react';
 
-function Timer() {
+function Timer({ collision }) {
   const [score, setScore] = React.useState(1000);
-  const [home, setHome] = React.useState(false);
   const [timer, setTimer] = React.useState(null);
 
   React.useEffect(() => {
@@ -12,24 +11,16 @@ function Timer() {
       }, 100)
     );
 
-    return () => clearInterval(timer);
+    return () => setTimer(clearInterval(timer));
   }, []);
 
   React.useEffect(() => {
-    if (score === 0 || home) {
+    if (score === 0 || collision) {
       setTimer(clearInterval(timer));
     }
-  }, [score, home]);
+  }, [score, collision]);
 
-  const changeGoblinHome = () => {
-    setHome(true);
-  };
-
-  return (
-    <div>
-      {score} - <button onClick={changeGoblinHome}>CLICK</button>
-    </div>
-  );
+  return <div>{score}</div>;
 }
 
 export default Timer;

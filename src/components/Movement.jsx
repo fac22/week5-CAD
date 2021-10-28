@@ -11,6 +11,7 @@ function Movement({ collision, setCollision }) {
   const [gx, setGx] = React.useState(4);
   const [by, setBy] = React.useState(randomNumber(0, 80));
   const [bx, setBx] = React.useState(randomNumber(50, 80));
+  const [portalMove, setPortalMove] = React.useState(null);
 
   React.useEffect(() => {
     const goblinCentrePoint = { x: gx + 10 / 2, y: gy + 10 / 2 };
@@ -33,20 +34,12 @@ function Movement({ collision, setCollision }) {
       setCollision(true);
   }, [gy, gx, by, bx]);
 
-  React.useEffect(() => {
-    if (collision) console.log('GAME!');
-  }, [collision]);
-
   function handleKeyDown(e) {
     if (e.keyCode === 38) setGy((y) => (y - 2 !== -2 ? y - 2 : y)); // up
     if (e.keyCode === 40) setGy((y) => (y + 2 !== 92 ? y + 2 : y)); // down
     if (e.keyCode === 37) setGx((x) => (x - 2 !== -2 ? x - 2 : x)); // left
     if (e.keyCode === 39) setGx((x) => (x + 2 !== 92 ? x + 2 : x)); // left
   }
-
-  React.useEffect(() => {
-    document.addEventListener('keydown', handleKeyDown);
-  }, []);
 
   const blobAxes = [setBy, setBx];
   const moveSign = [
@@ -61,13 +54,27 @@ function Movement({ collision, setCollision }) {
   }
 
   React.useEffect(() => {
-    setInterval(blobMovement, 1);
+    console.log('portal start');
+    setPortalMove(setInterval(blobMovement, 1));
+    window.addEventListener('keydown', handleKeyDown);
+    console.log('start listen for keys');
+
+    return () => window.removeEventListener();
   }, []);
+
+  React.useEffect(() => {
+    if (collision) {
+      console.log('GAME!');
+      setPortalMove(clearInterval(portalMove));
+      window.removeEventListener('keydown', handleKeyDown);
+      console.log('should remove keys');
+    }
+  }, [collision]);
 
   return (
     <div>
-      <Goblin y={gy} x={gx} />
       <Blob y={by} x={bx} />
+      {!collision ? <Goblin y={gy} x={gx} /> : null}
     </div>
   );
 }
