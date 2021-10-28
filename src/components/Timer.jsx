@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Timer({ collision }) {
+function Timer({ collision, setStage, setCollision }) {
   const [score, setScore] = React.useState(1000);
   const [timer, setTimer] = React.useState(null);
 
@@ -17,6 +17,8 @@ function Timer({ collision }) {
   React.useEffect(() => {
     if (score === 0 || collision) {
       setTimer(clearInterval(timer));
+      setStage('GameOver');
+      setCollision(false);
     }
   }, [score, collision]);
 
