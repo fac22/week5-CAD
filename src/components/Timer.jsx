@@ -1,24 +1,28 @@
-import { useEffect, useState, useRef } from 'react';
+import React from 'react';
 
 function Timer() {
-  const [score, setScore] = useState(1000);
+  const [score, setScore] = React.useState(1000);
+  const [home, setHome] = React.useState(false);
+  const [timer, setTimer] = React.useState(null);
 
-  const goblinHome = useRef(false);
-
-  useEffect(() => {
-    if (!goblinHome.current) {
-      const timer = setInterval(() => {
+  React.useEffect(() => {
+    setTimer(
+      setInterval(() => {
         setScore((oldScore) => oldScore - 1);
-      }, 100);
+      }, 100)
+    );
 
-      return () => clearInterval(timer);
-    }
+    return () => clearInterval(timer);
   }, []);
 
+  React.useEffect(() => {
+    if (score === 0 || home) {
+      setTimer(clearInterval(timer));
+    }
+  }, [score, home]);
+
   const changeGoblinHome = () => {
-    console.log(goblinHome.current);
-    goblinHome.current = true;
-    console.log(goblinHome.current);
+    setHome(true);
   };
 
   return (
