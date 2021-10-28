@@ -9,7 +9,12 @@ function App() {
   return (
     <div>
       {stage === 'HomePage' && <Table setStage={setStage} />}
-      {stage === 'Game' && <Movement /><Timer />}
+      {stage === 'Game' && (
+        <>
+          <Movement />
+          <Timer />
+        </>
+      )}
     </div>
   );
 }
