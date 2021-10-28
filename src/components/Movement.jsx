@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import Goblin from './Goblin';
 import Blob from './Blob';
+import Timer from './Timer';
 
 function randomNumber(min, max) {
   return Math.round(Math.random() * (max - min) + min);
@@ -78,7 +79,6 @@ function Movement() {
   return (
     <div>
       <Goblin y={gy} x={gx} />
-      <Blob y={by} x={bx} height={height} width={width} />
     </div>
   );
 }
