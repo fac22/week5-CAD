@@ -1,18 +1,16 @@
 import React from 'react';
 import Goblin from './Goblin';
 import Blob from './Blob';
-import Timer from './Timer';
 
 function randomNumber(min, max) {
   return Math.round(Math.random() * (max - min) + min);
 }
 
-function Movement() {
+function Movement({ collision, setCollision }) {
   const [gy, setGy] = React.useState(4);
   const [gx, setGx] = React.useState(4);
   const [by, setBy] = React.useState(randomNumber(0, 80));
   const [bx, setBx] = React.useState(randomNumber(50, 80));
-  const [collision, setCollision] = React.useState(false);
 
   React.useEffect(() => {
     const goblinCentrePoint = { x: gx + 10 / 2, y: gy + 10 / 2 };
@@ -61,7 +59,6 @@ function Movement() {
     const sign = moveSign[randomNumber(0, 1)];
     return axis(sign);
   }
-
 
   React.useEffect(() => {
     setInterval(blobMovement, 1);

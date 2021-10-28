@@ -5,13 +5,14 @@ import Timer from './components/Timer';
 
 function App() {
   const [stage, setStage] = useState('HomePage');
+  const [collision, setCollision] = React.useState(false);
 
   return (
     <div>
       {stage === 'HomePage' && <Table setStage={setStage} />}
       {stage === 'Game' && (
         <>
-          <Movement />
+          <Movement collision={collision} setCollision={setCollision} />
           <Timer />
         </>
       )}
