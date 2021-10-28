@@ -63,15 +63,6 @@ function Movement() {
     return axis(sign);
   }
 
-  function blobSize() {
-    setHeight((h) => (h < 50 ? h + 0.001 : h));
-    setWidth((w) => (w < 50 ? w + 0.001 : w));
-  }
-
-  useEffect(() => {
-    setInterval(blobSize, 1000);
-  });
-
   useEffect(() => {
     setInterval(blobMovement, 10);
   }, []);
