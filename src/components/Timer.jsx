@@ -1,10 +1,8 @@
 import React from 'react';
 
-function Timer({ collision, setStage, setCollision }) {
+function Timer({ collision, setStage, setCollision, points }) {
   const [score, setScore] = React.useState(1000);
   const [timer, setTimer] = React.useState(null);
-
-  const points = React.useRef(0);
 
   React.useEffect(() => {
     setTimer(

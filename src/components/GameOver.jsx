@@ -1,7 +1,7 @@
 import React from 'react';
 
 function GameOver(prop) {
-  const { setStage } = prop;
+  const { setStage, points } = prop;
   const updateStage = () => setStage('HomePage');
   const playAgain = () => setStage('Game');
 
@@ -10,7 +10,7 @@ function GameOver(prop) {
       <header>GoGoGoblin</header>
       <main className="game-over">
         <h1>GAME OVER</h1>
-        <p className="score">Your score is </p>
+        <p className="score">Your score is {points}</p>
         <button onClick={updateStage} type="button">
           Home Page
         </button>

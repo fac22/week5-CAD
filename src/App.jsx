@@ -8,6 +8,8 @@ function App() {
   const [stage, setStage] = useState('HomePage');
   const [collision, setCollision] = React.useState(false);
 
+  const points = React.useRef(0);
+
   return (
     <div>
       {stage === 'HomePage' && <Table setStage={setStage} />}
@@ -18,10 +20,13 @@ function App() {
             collision={collision}
             setStage={setStage}
             setCollision={setCollision}
+            points={points}
           />
         </>
       )}
-      {stage === 'GameOver' && <GameOver setStage={setStage} />}
+      {stage === 'GameOver' && (
+        <GameOver points={points.current} setStage={setStage} />
+      )}
     </div>
   );
 }
